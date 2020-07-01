@@ -24,16 +24,16 @@ public:
 	const bool isEmpty() const;
 
 	//access the first element of Vector when it is const
-	const int& head() const;
+	const int& front() const;
 
 	//access the first element of Vector
-	int& head();
+	int& front();
 
 	//access the last element of Vector when it is const
-	const int& tail() const;
+	const int& back() const;
 
 	//aceess the last element of Vector
-	int& tail();
+	int& back();
 
 	//access specified element with bounds checking when is is const
 	const int& at(std::size_t pos) const;
@@ -48,7 +48,7 @@ public:
 	int& operator[](std::size_t pos);
 
 	//add new element to the end of Vector
-	void push_tail(const int& value);
+	void push_back(const int& value);
 
 	//clean all elements in Vector
 	void clean();
@@ -80,17 +80,17 @@ inline const bool Vector::isEmpty() const
 	return (m_size == 0);
 }
 
-inline const int& Vector::head() const
+inline const int& Vector::front() const
 {
 	return m_values[0]; 
 }
 
-inline int& Vector::head()
+inline int& Vector::front()
 {
-	return const_cast<int&>(static_cast<const Vector&>(*this).head());
+	return const_cast<int&>(static_cast<const Vector&>(*this).front());
 }
 
-inline const int& Vector::tail() const
+inline const int& Vector::back() const
 {
 	if(m_size <= 1)
 		return m_values[0];
@@ -98,9 +98,9 @@ inline const int& Vector::tail() const
 	return m_values[m_size - 1];
 }
 
-inline int& Vector::tail()
+inline int& Vector::back()
 {
-	return const_cast<int&>(static_cast<const Vector&>(*this).tail());
+	return const_cast<int&>(static_cast<const Vector&>(*this).back());
 }
 
 inline const int& Vector::at(std::size_t pos) const

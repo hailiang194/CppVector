@@ -7,7 +7,7 @@ Vector::Vector(std::size_t n, const int& value)
 	m_values = nullptr;
 
 	for(std::size_t i = 0; i < n; i++)
-		push_tail(value);
+		push_back(value);
 }
 
 Vector::Vector(const Vector& vector)
@@ -36,7 +36,7 @@ Vector& Vector::operator=(const Vector& vector)
 	return *this;
 }
 
-void Vector::push_tail(const int& value)
+void Vector::push_back(const int& value)
 {
 	if(m_capacity == m_size) //full
 		_expand();
