@@ -11,7 +11,7 @@ public:
 	//initialize vector with n elements and their value is value
 	Vector(std::size_t n = 0, const int& value = 0);
     Vector(const Vector& vector);
-	~Vector();
+	virtual ~Vector();
 	Vector& operator=(const Vector& vector);
 
 	//get the quantity of elements in Vector

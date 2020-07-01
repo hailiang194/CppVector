@@ -21,7 +21,6 @@ Vector::Vector(const Vector& vector)
 
 Vector::~Vector()
 {
-	if(m_values != nullptr)
 		delete m_values;
 }
 
