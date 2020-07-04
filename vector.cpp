@@ -1,20 +1,15 @@
 #include "vector.hpp"
 
 Vector::Vector(std::size_t n, const int& value)
+    : m_capacity(0), m_size(0), m_values(nullptr)
 {
-	m_capacity = 0;
-	m_size = 0;
-	m_values = nullptr;
-
-	for(std::size_t i = 0; i < n; i++)
+	for(std::size_t i = 0; i < n; ++i)
 		push_back(value);
 }
 
 Vector::Vector(const Vector& vector)
+    : m_capacity(vector.m_capacity), m_size(vector.m_size)
 {
-	m_capacity = vector.m_capacity;
-	m_size = vector.m_size;
-
 	m_values = new int[m_capacity];
 	std::memcpy(m_values, vector.m_values, m_size * sizeof(int));
 }
@@ -55,7 +50,7 @@ void Vector::clean()
 
 void Vector::erase(std::size_t pos)
 {
-	for(std::size_t i = pos + 1; i < m_size; i++)
+	for(std::size_t i = pos + 1; i < m_size; ++i)
 		m_values[i - 1] = m_values[i];
 
 	m_size--;
